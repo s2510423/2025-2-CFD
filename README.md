@@ -1,2 +1,3 @@
-# 2025-2-CFD
-[인간의 맨몸 비행 가능성에 대한 CFD(Computational Fluid Dynamics) 시뮬레이션을 활용한 유체역학적 검증]
+# **아직** 업데이트되지 않았습니다.
+## **Comming Soon** 
+~2025.10.18
