@@ -61,7 +61,7 @@
 
 ``` Powershell or CMD
 
-Invoke-WebRequest -Uri 'https://github.com/s2510423/2025-2-CFD/archive/refs/tags/v1.0.zip' -OutFile (TODO:파일명 정확히: .zip)
+Invoke-WebRequest -Uri 'https://github.com/s2510423/2025-2-CFD/archive/refs/tags/v1.0.zip' -OutFile .zip
 
 ```
 
