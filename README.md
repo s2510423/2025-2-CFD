@@ -53,17 +53,7 @@
 
 <br>
 
-
-
-<br>
-
-아래의 명령어를 터미널에 입력합니다.
-
-``` Powershell or CMD
-
-Invoke-WebRequest -Uri 'https://github.com/s2510423/2025-2-CFD/archive/refs/tags/v1.0.zip' -OutFile .zip
-
-```
+레포지토리 내 최신 릴리스에서 소스 코드 압축 파일을 다운로드하여 압축해제합니다.
 
 <br>
 
@@ -77,15 +67,7 @@ Invoke-WebRequest -Uri 'https://github.com/s2510423/2025-2-CFD/archive/refs/tags
 
 <br>
 
-아래의 명령어를 터미널에 입력합니다.
-
-``` bash
-
-wget 'https://github.com/s2510423/2025-2-CFD/archive/refs/tags/v1.0.zip'
-
-```
-
-포함된 프로그램은 Windows 항목과 동일합니다.
+레포지토리의 최신 릴리스에서 소스 코드 압축 파일을 다운로드하여 압축해제합니다.
 
 <br>
 
