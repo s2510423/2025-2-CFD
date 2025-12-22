@@ -33,7 +33,7 @@ class Case:
         with open (os.path.join('p1',self.name,"system","decomposeParDict"), "w") as f:
             for line in lines:
                 if "numberOfSubdomains" in line:
-                    f.write(f"numberOfSubdomains  {num};\n")
+                    f.write(f"numberOfSubdomains  {num};")
                 else:f.write(line)
                 
 
@@ -282,9 +282,9 @@ class Case_p2:
         with open(os.path.join('p2',self.name,"0","U"), "w") as f:
             for line in lines:
                 if "internalField   uniform (0 60 0);" in line:
-                    f.write(f"internalField   uniform (0 {self.velocity} 0);\n")
+                    f.write(f"internalField   uniform (0 {self.velocity} 0);")
                 elif "        value   uniform (0 60 0);" in line:
-                    f.write(f"        value   uniform (0 {self.velocity} 0);\n")
+                    f.write(f"        value   uniform (0 {self.velocity} 0);")
                 else: f.write(line)
     def forces(self):
         global results
@@ -492,7 +492,7 @@ def decompose_check(num):
     with open (os.path.join('check','50deg',"system","decomposeParDict"), "w") as f:
         for line in lines:
             if "numberOfSubdomains" in line:
-                f.write(f"numberOfSubdomains  {num};\n")
+                f.write(f"numberOfSubdomains  {num};")
             else:f.write(line)
     try: 
         subprocess.run(["decomposePar"], cwd = os.path.join('check', '50deg'))
@@ -535,7 +535,7 @@ def p1():
         with open(os.path.join(root,i,'system','controlDict'), "w") as f:
             for line in lines:
                         if 'writeIntervlal' in line and '//' in line:
-                            f.write("writeInterval            1000;\n")
+                            f.write("writeInterval            1000;")
                         else:pass
         
 def p2():
@@ -555,9 +555,9 @@ def p2():
         with open(os.path.join(root,i,'system','controlDict'), "w") as f:
             for line in lines:
                 if "deltaT" in line:
-                    f.write(f"deltaT                  0.05;\n")
+                    f.write(f"deltaT                  0.05;")
                 elif 'writeIntervlal' in line and '//' in line:
-                    f.write("writeInterval            100;\n")
+                    f.write("writeInterval            100;")
                 else:pass
 
 def check(): 
@@ -568,11 +568,11 @@ def check():
     with open(os.path.join(root,'50deg','system','controlDict'), "w") as f:
         for line in lines:
             if "deltaT" in line:
-                f.write(f"deltaT                  0.01;\n")
+                f.write(f"deltaT                  0.01;")
             elif 'endTime' in line:
-                f.write(f'endtime                 50;\n')
+                f.write(f'endtime                 50;')
             elif 'writeIntervlal' in line and '//' in line:
-                f.write("writeInterval            5000;\n")
+                f.write("writeInterval            5000;")
             else:pass
         ''')
     with open('menu.py','w') as f:
