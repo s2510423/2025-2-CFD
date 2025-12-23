@@ -511,14 +511,16 @@ def transformPoints_check():
         p = subprocess.Popen(command, cwd = os.path.join('check', '50deg'), shell=True)
         return p
     except: print("[오류 발생: foamRun] 이 프로세스는 v11 이상의 OpenFOAM 환경에서 진행해야 합니다.")
-launch_p1()
-launch_p2()
+
         ''')
     with open('make.py','w') as f:
         f.write('''
 import os,shutil,foampy
 def p1():
-    root = os.path.join("..", "p1")
+    try:root = os.path.join('.','p1')
+    except:
+        os.makedirs('p1')
+        root = os.path.join('.','p1')
     for i in range(-175,181,5): 
         if i<0:os.makedirs(os.path.join(root, f"m{i}deg"), exist_ok = True)
         elif i>=0:os.makedirs(os.path.join(root, f"{i}deg"), exist_ok = True)
@@ -539,7 +541,10 @@ def p1():
                         else:pass
         
 def p2():
-    root = os.path.join("..", "p2")
+    try: root = os.path.join(".", "p2")
+    except:
+        os.makedirs('p2')
+        root = os.path.join(".", "p2")
     for i in range(1,61,5): os.makedirs(os.path.join(root, f"{i}mps"), exist_ok = True)
     foampy.launch_p2()
     shutil.copytree('CaseTemplate',os.path.join('p2','CaseTemplate'),dirs_exist_ok=True)
@@ -561,11 +566,11 @@ def p2():
                 else:pass
 
 def check(): 
-    shutil.copytree(os.path.join('..','CaseTemplate'), '50deg',dirs_exist_ok=True)
-    os.remove(os.path.join('50deg0','constant','trisurface','HumanHQ0deg.stl'))
-    with open(os.path.join(root,'50deg','system','controlDict'), "r") as f:
+    shutil.copytree(os.path.join('.','CaseTemplate'), 'check',dirs_exist_ok=True)
+    os.remove(os.path.join('check','constant','trisurface','HumanHQ0deg.stl'))
+    with open(os.path.join(root,'check','system','controlDict'), "r") as f:
         lines = f.readlines()
-    with open(os.path.join(root,'50deg','system','controlDict'), "w") as f:
+    with open(os.path.join(root,'check','system','controlDict'), "w") as f:
         for line in lines:
             if "deltaT" in line:
                 f.write(f"deltaT                  0.01;")
