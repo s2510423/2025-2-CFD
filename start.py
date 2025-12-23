@@ -532,9 +532,9 @@ def p1():
         i.update('constant')
         i.update(None,'.foam')
         i.delete(os.path.join('constant','triSurface'),'HumanHQ0deg.stl')
-        with open(os.path.join(root,i,'system','controlDict'), "r") as f:
+        with open(os.path.join(root,i.name,'system','controlDict'), "r") as f:
             lines = f.readlines()
-        with open(os.path.join(root,i,'system','controlDict'), "w") as f:
+        with open(os.path.join(root,i.name,'system','controlDict'), "w") as f:
             for line in lines:
                         if 'writeIntervlal' in line and '//' in line:
                             f.write("writeInterval            1000;")
@@ -555,9 +555,9 @@ def p2():
         i.update(None,'.foam')
         i.changeU()
         i.delete(os.path.join('constant','triSurface'),'HumanHQ0deg.stl')
-        with open(os.path.join(root,i,'system','controlDict'), "r") as f:
+        with open(os.path.join(root,i.name,'system','controlDict'), "r") as f:
             lines = f.readlines()
-        with open(os.path.join(root,i,'system','controlDict'), "w") as f:
+        with open(os.path.join(root,i.name,'system','controlDict'), "w") as f:
             for line in lines:
                 if "deltaT" in line:
                     f.write(f"deltaT                  0.05;")
