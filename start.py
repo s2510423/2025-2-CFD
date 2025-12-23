@@ -568,9 +568,9 @@ def p2():
 def check(): 
     shutil.copytree(os.path.join('.','CaseTemplate'), 'check',dirs_exist_ok=True)
     os.remove(os.path.join('check','constant','triSurface','HumanHQ0deg.stl'))
-    with open(os.path.join(root,'check','system','controlDict'), "r") as f:
+    with open(os.path.join('.','check','system','controlDict'), "r") as f:
         lines = f.readlines()
-    with open(os.path.join(root,'check','system','controlDict'), "w") as f:
+    with open(os.path.join('.','check','system','controlDict'), "w") as f:
         for line in lines:
             if "deltaT" in line:
                 f.write(f"deltaT                  0.01;")
