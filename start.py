@@ -69,7 +69,7 @@ class Case_p1(Case):
 
     def update(self, folder, file=None):
         base=os.path.join('p1',self.name)
-        source=os.path.join('p1','Casetemplate')
+        source=os.path.join('p1','CaseTemplate')
         if folder is None and file:
             shutil.copy2(os.path.join(source,file),os.path.join(base,file))
             print(f'Updated {os.path.join(base,file)}')
@@ -265,7 +265,7 @@ class Case_p2:
 
     def update(self, folder, file=None):
         base=os.path.join('p2',self.name)
-        source=os.path.join('p2','Casetemplate')
+        source=os.path.join('p2','CaseTemplate')
         if folder is None and file:
             shutil.copy2(os.path.join(source,file),os.path.join(base,file))
             print(f'Updated {os.path.join(base,file)}')
@@ -531,7 +531,7 @@ def p1():
         i.update('system')
         i.update('constant')
         i.update(None,'.foam')
-        i.delete(os.path.join('constant','trisurface'),'HumanHQ0deg.stl')
+        i.delete(os.path.join('constant','triSurface'),'HumanHQ0deg.stl')
         with open(os.path.join(root,i,'system','controlDict'), "r") as f:
             lines = f.readlines()
         with open(os.path.join(root,i,'system','controlDict'), "w") as f:
@@ -554,7 +554,7 @@ def p2():
         i.update('constant')
         i.update(None,'.foam')
         i.changeU()
-        i.delete(os.path.join('constant','trisurface'),'HumanHQ0deg.stl')
+        i.delete(os.path.join('constant','triSurface'),'HumanHQ0deg.stl')
         with open(os.path.join(root,i,'system','controlDict'), "r") as f:
             lines = f.readlines()
         with open(os.path.join(root,i,'system','controlDict'), "w") as f:
@@ -567,7 +567,7 @@ def p2():
 
 def check(): 
     shutil.copytree(os.path.join('.','CaseTemplate'), 'check',dirs_exist_ok=True)
-    os.remove(os.path.join('check','constant','trisurface','HumanHQ0deg.stl'))
+    os.remove(os.path.join('check','constant','triSurface','HumanHQ0deg.stl'))
     with open(os.path.join(root,'check','system','controlDict'), "r") as f:
         lines = f.readlines()
     with open(os.path.join(root,'check','system','controlDict'), "w") as f:
